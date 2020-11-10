@@ -22,8 +22,8 @@ spec:
     type: LoadBalancer
   storage:
     data:
-      className: default
+      className: managed-premium
       size: 5Gi
     logs:
-      className: default
+      className: managed-premium
       size: 5Gi
