@@ -2,12 +2,14 @@ apiVersion: v1
 data:
   password: RFBTRGVtbzkwMA==
 kind: Secret
+namespace: arc
 metadata:
   name: pg01-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
+namespace: arc
 metadata:
   generation: 1
   name: pg01
