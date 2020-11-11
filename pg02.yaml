@@ -1,0 +1,42 @@
+apiVersion: v1
+data:
+  password: RFBTRGVtbzkwMA==
+kind: Secret
+namespace: arc
+metadata:
+  name: pg02-login-secret
+type: Opaque
+---
+apiVersion: arcdata.microsoft.com/v1alpha1
+kind: postgresql-12
+namespace: arc
+metadata:
+  generation: 1
+  name: pg02
+spec:
+  engine:
+    extensions:
+    - name: citus
+  scale:
+    workers: 1
+  scheduling:
+    default:
+      resources:
+        limits:
+          cpu: "4"
+          memory: 4Gi
+        requests:
+          cpu: "1"
+          memory: 2Gi
+  service:
+    type: LoadBalancer
+  storage:
+    backups:
+      className: managed-premium
+      size: 5Gi
+    data:
+      className: managed-premium
+      size: 5Gi
+    logs:
+      className: managed-premium
+      size: 1Gi
